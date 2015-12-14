@@ -1,0 +1,42 @@
+{
+  "name": "configurable-gulp-recipe-pipe",
+  "version": "0.1.0",
+  "description": "Configurable gulp recipe that pipe stream generated from first sub task to others.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amobiz/configurable-gulp-recipe-pipe.git"
+  },
+  "keywords": [
+    "configurable-gulp-recipe",
+    "configurable-gulp-recipes",
+    "stream",
+    "pipe",
+    "pipe stream",
+    "plugin",
+    "plugins",
+    "recipe",
+    "recipes",
+    "configurable",
+    "configuration",
+    "configurations"
+  ],
+  "author": "Amobiz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/amobiz/configurable-gulp-recipe-pipe/issues"
+  },
+  "homepage": "https://github.com/amobiz/configurable-gulp-recipe-pipe#readme",
+  "devDependencies": {
+    "mocha": "^2.3.4",
+    "mocha-cases": "^0.1.4"
+  },
+  "dependencies": {
+    "configurable-gulp-helper": "git+https://github.com/amobiz/configurable-gulp-helper.git",
+    "gulp-util": "^3.0.7",
+    "merge-stream": "^1.0.0"
+  }
+}
