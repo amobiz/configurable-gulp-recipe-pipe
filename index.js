@@ -1,7 +1,6 @@
 'use strict';
 
-var helper = require('gulp-ccr-helper');
-var verify = helper.verifyStreamPrerequisite('pipe');
+var helper = require('gulp-ccr-stream-helper')('pipe');
 
 /**
  * Recipe:
@@ -15,16 +14,22 @@ var verify = helper.verifyStreamPrerequisite('pipe');
  *
  */
 function pipe() {
-	var i, n, stream;
+	var gulp = this.gulp;
+	var config = this.config;
+	var tasks = this.tasks;
 
-	var context = this,
-		tasks = context.tasks,
-		runTask = verify(context, true);
+	var i, n, stream, context;
 
-	stream = context.upstream;
+	helper.prerequisite(this, true, 1);
+
+	stream = this.upstream;
 	for (i = 0, n = tasks.length; i < n; ++i) {
-		context.upstream = stream;
-		stream = runTask(tasks[i]);
+		context = {
+			gulp: gulp,
+			config: config,
+			upstream: stream
+		};
+		stream = helper.runTask(context, tasks[i]);
 	}
 	return stream;
 }
@@ -32,9 +37,9 @@ function pipe() {
 pipe.expose = [];
 
 pipe.schema = {
-	"title": "pipe",
-	"description": "",
-	"properties": {
+	title: 'pipe',
+	description: 'Pipe stream generated from first child task to others.',
+	properties: {
 	}
 };
 

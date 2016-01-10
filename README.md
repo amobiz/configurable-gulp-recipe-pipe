@@ -1,2 +1,2 @@
 # gulp-ccr-pipe
-Cascading Configurable Gulp Recipe for gulp-chef that pipe stream generated from first sub task to others.
+Pipe stream generated from first child task to others. A cascading configurable Gulp recipe for gulp-chef.
