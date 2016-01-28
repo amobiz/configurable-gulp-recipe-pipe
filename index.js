@@ -2,17 +2,13 @@
 
 var helper = require('gulp-ccr-stream-helper')('pipe');
 
-/**
- * Recipe:
- * 	Stream Pipe
- *
- * Ingredients:
- * 	stream.pipe()
- *
- * @config 針對本 task 的 configuration。
- * @tasks 傳入的子 tasks 為 configurableTask，是尚未綁定 config 的 task 形式。
- *
- */
+var schema = {
+	title: 'pipe',
+	description: 'Pipe stream generated from first child task to others.',
+	properties: {
+	}
+};
+
 function pipe() {
 	var gulp = this.gulp;
 	var config = this.config;
@@ -34,15 +30,6 @@ function pipe() {
 	return stream;
 }
 
-pipe.expose = [];
-
-pipe.schema = {
-	title: 'pipe',
-	description: 'Pipe stream generated from first child task to others.',
-	properties: {
-	}
-};
-
-pipe.type = 'stream';
-
 module.exports = pipe;
+module.exports.schema = schema;
+module.exports.type = 'stream';
